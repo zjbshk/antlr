@@ -12,57 +12,10 @@
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-            <version>1.18.10</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.28</version>
-        </dependency>
-
-
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.62</version>
-        </dependency>
-
-
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4</artifactId>
             <version>4.7.2</version>
-        </dependency>
-
-        <dependency>
-            <artifactId>wantong-common</artifactId>
-            <groupId>com.wantong</groupId>
-            <optional>true</optional>
-            <version>3.7.6-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>4.6.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.ibeetl</groupId>
-            <artifactId>beetl</artifactId>
-            <version>3.0.10.RELEASE</version>
         </dependency>
 
     </dependencies>
@@ -79,7 +32,25 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.9.RELEASE</version>
+                <configuration>
+                    <mainClass>top.coolsite.params.Main</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
+
+
     </build>
 
 
