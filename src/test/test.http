@@ -1,0 +1,62 @@
+###
+# 搜索玩瞳书本图像库
+POST {{host}}/api-cloud/book/searchBaseBook
+Content-Type: application/json
+token: {{token}}
+
+{
+  "isbn": "1",
+  "name": "How Many insect",
+  "page": 1,
+  "pageSize": 10
+}
+
+###
+# 玩瞳后台领书接口
+POST {{host}}/api-cloud/book/collarBook
+Content-Type: application/json
+token: {{token}}
+
+{
+  "repoId": 242,
+  "baseBookId": 13221
+}
+
+###
+# 将玩瞳给巧读的私有库里的书更新状态为已审核
+PUT {{host}}/api-cloud/book/updateBookState/96901
+token: {{token}}
+
+
+###
+# 玩瞳后台搜索书接口（必须是已审核的书本）
+GET {{host}}/api-cloud/book/search?isbn=9787558052163
+token: {{token}}
+
+
+
+###
+# 搜索玩瞳一本书的书页信息（会带有水印）
+POST {{host}}/api-cloud/book/search/85755?private=true1
+token: {{token}}
+
+
+########################### 巧读后台api
+POST http://kidsadmindev.51wanxue.com/login
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=123456&remember=on
+
+###
+POST http://127.0.0.1:4000/class/detail/s
+Content-Type: application/x-www-form-urlencoded
+Cookie: shiroCookie=658de50d-cb14-4a07-a4b1-58dcc3f8aa27; rememberMe=v93g9L09kPQrgK4/nVb7jd5RMA47aTziPFhEV5sp4AL7wvFY2BBRdV2FW9SGR7UFSF1xvBpU0CZesx9nbwYVtSq1DDLHqbMPri9pTrh+GprrIk94NqwZK7TZM05a+be2SwSKD+z1CiNAbrkSfF4w5zoxcEwtJBc9y4127jef9gizbCxZVVqw8SFX41d8OZvTqK4QrKmfjUY+GtBwhLbsWF+SZejYXY6+k7Egl79+za11deI71ry2AmZMsoXs5jU/ACms3f/926iOlqT0lzGM1+ma5Ee1+7ZWmBrNsCjTkCwDU1BRAjeDXbAsmP5fZI8jbTWrWauMxv/HHgQliq2a0U0kGoWEhRxVs10d8qbGkHmwMqlkxm45lgnWVflAEzlyzDCGY0oDZm0ZawtsO6yCJFQgBfkCSiWXFFP0EB21jFoCGbMuUaVmUn3z3KcLYEA7ujt4wl4FKTwDzoAwQkZWYp4XUwFuhKC4C16c8dxlrk/L0fH7zafOnJEUkgXEpoRdZpJTf5UqYhP7o4CRa0BecNkurpDTbFqBGFResixwDrJDhNNVfEsrNCSiEEfqu3rjoSis8GHa/ftYFsr/f4oUWEro2+gaiq2hJ5ca2LmPhn6qkrWim5nBMrbzqNgBt4qQehIqzjHpNbCo09uvhGifhEpp814YiTm6TV2tKQyzE6Q1MPRCi/SE3X35hKGGVfxiKmA80UICE5Mp6r6h2ieINg6KT43WDj63LRe2ouCD11r8DZgjbVVQa22TPvKCE+xpQN9Z9jier7CKkb3bIIlwXwktSBLQVMvrYSbtilnUrEA4Z9LgkLl9WnTj+M6dy/5YnwjqgNNDRmvdzsXxqkRlT35rpOezs7XTSiciJo9XBWH9b/fdDtYHf+sXQaBPjofQ7PvTytHPCaD/tK/0O2eyhtQcG+JIs/kH2WDpjXwMw4mxmYa1vJ5eoeb0PFiS4o7gr/v6bHEVaxS+m8fsY+EaSix4OhfK8GgEDSBTicVPG+PPwkp4m5rtCfdC9pex1en5NiSb777I3gKuScf93fBYoIL1dRAnAcO9hvvBFKlQaOF5QZuEGvgFtKTlDhTNV75J1p7Fox7kBgr0qqfUv9ySlpyWseccx27yCDnzWtlyV+GKNQJMf6h5pbYztbTOGJaOua2/SSgX+yrSpKhvJ4HBm70Qf5QEi1QBtlIfDY5fN0WTfM9naYwJxT2R1jCF8w0J
+
+
+###
+#WAITMAKE
+#RELEASE
+GET http://127.0.0.1:4000/book/list/BOOKSTORE?bookName=How Many&bookIsbn=&type=&page=9&size=1000
+Cookie: shiroCookie=658de50d-cb14-4a07-a4b1-58dcc3f8aa27; rememberMe=v93g9L09kPQrgK4/nVb7jd5RMA47aTziPFhEV5sp4AL7wvFY2BBRdV2FW9SGR7UFSF1xvBpU0CZesx9nbwYVtSq1DDLHqbMPri9pTrh+GprrIk94NqwZK7TZM05a+be2SwSKD+z1CiNAbrkSfF4w5zoxcEwtJBc9y4127jef9gizbCxZVVqw8SFX41d8OZvTqK4QrKmfjUY+GtBwhLbsWF+SZejYXY6+k7Egl79+za11deI71ry2AmZMsoXs5jU/ACms3f/926iOlqT0lzGM1+ma5Ee1+7ZWmBrNsCjTkCwDU1BRAjeDXbAsmP5fZI8jbTWrWauMxv/HHgQliq2a0U0kGoWEhRxVs10d8qbGkHmwMqlkxm45lgnWVflAEzlyzDCGY0oDZm0ZawtsO6yCJFQgBfkCSiWXFFP0EB21jFoCGbMuUaVmUn3z3KcLYEA7ujt4wl4FKTwDzoAwQkZWYp4XUwFuhKC4C16c8dxlrk/L0fH7zafOnJEUkgXEpoRdZpJTf5UqYhP7o4CRa0BecNkurpDTbFqBGFResixwDrJDhNNVfEsrNCSiEEfqu3rjoSis8GHa/ftYFsr/f4oUWEro2+gaiq2hJ5ca2LmPhn6qkrWim5nBMrbzqNgBt4qQehIqzjHpNbCo09uvhGifhEpp814YiTm6TV2tKQyzE6Q1MPRCi/SE3X35hKGGVfxiKmA80UICE5Mp6r6h2ieINg6KT43WDj63LRe2ouCD11r8DZgjbVVQa22TPvKCE+xpQN9Z9jier7CKkb3bIIlwXwktSBLQVMvrYSbtilnUrEA4Z9LgkLl9WnTj+M6dy/5YnwjqgNNDRmvdzsXxqkRlT35rpOezs7XTSiciJo9XBWH9b/fdDtYHf+sXQaBPjofQ7PvTytHPCaD/tK/0O2eyhtQcG+JIs/kH2WDpjXwMw4mxmYa1vJ5eoeb0PFiS4o7gr/v6bHEVaxS+m8fsY+EaSix4OhfK8GgEDSBTicVPG+PPwkp4m5rtCfdC9pex1en5NiSb777I3gKuScf93fBYoIL1dRAnAcO9hvvBFKlQaOF5QZuEGvgFtKTlDhTNV75J1p7Fox7kBgr0qqfUv9ySlpyWseccx27yCDnzWtlyV+GKNQJMf6h5pbYztbTOGJaOua2/SSgX+yrSpKhvJ4HBm70Qf5QEi1QBtlIfDY5fN0WTfM9naYwJxT2R1jCF8w0J
+
+###

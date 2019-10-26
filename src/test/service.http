@@ -1,0 +1,67 @@
+#2、环节列表获取接口(获取的数据只能是已发布的)
+GET {{host}}/qreadcli/situation/list?bookId=96901&pageId=420023
+cloudOpenId: {{cloudOpenId}}
+
+###
+#3、题组列表接口(题组中并没有返回题组引导语)
+GET {{host}}/qreadcli/situation/topicGroupList?situationNo=191025151910000000592223760
+cloudOpenId: {{cloudOpenId}}
+
+###
+#4、手指找答案题组详情接口
+GET {{host}}/qreadcli/situation/fingerFindAnswerTopic?topicGroupNo=191023110306000001339566753
+cloudOpenId: {{cloudOpenId}}
+
+###
+#5、答题结果反馈接口
+POST {{host}}/qreadcli/situation/feedback
+Content-Type: application/json
+cloudOpenId: {{cloudOpenId}}
+
+{
+  "questionNo": "123456789",
+  "answer": true,
+  "situationNo": "4564534",
+  "answerNumber": 2,
+  "answerTimes": 3,
+  "result": true,
+  "cloudOpenId": "17b719deaea411e9a6166c92bf315f73",
+  "situationType": 3
+}
+
+###
+#6、语音评测题组详情接口
+GET {{host}}/qreadcli/situation/evaluationTopic?topicGroupNo=191025153906000001454834860
+cloudOpenId: {{cloudOpenId}}
+
+
+###
+#7、语音答案校验接口
+POST {{host}}/qreadcli/situation/evaluationVerify
+cloudOpenId: {{cloudOpenId}}
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="answer"; filename="answer.mp3"
+Content-Type: text/plain
+
+< C:\Users\DELL\Desktop\dos.bat
+--WebAppBoundary
+
+###
+#8、指控领读通用引导语接口
+GET {{host}}/qreadcli/situation/fingerGuideWord
+cloudOpenId: {{cloudOpenId}}
+
+
+###
+#9、常规点读通用引导语接口
+GET {{host}}/qreadcli/situation/pointGuideWord
+cloudOpenId: {{cloudOpenId}}
+
+###
+#10、语音获取接口
+GET {{host}}/qreadcli/situation/recognize?bookId=85722&pageId=1698004&index=3
+cloudOpenId: {{cloudOpenId}}
+
+###

@@ -1,0 +1,226 @@
+#领书接口
+POST {{host}}/book/leadBook
+Content-Type: application/json
+Cookie: {{cookie}}
+
+{
+  "repoId": "242",
+  "baseBookId": "13221"
+}
+
+###
+#1、根据书本ID查询该书下每一页的信息
+GET {{host}}/course/searchPages?bookid=13221
+Content-Type: application/json
+Cookie: {{cookie}}
+
+###
+#2、获取某本书某页的所有已编辑的环节资源
+GET {{host}}/course/loadEditedLink?refBookId=96901&pageId=420023
+Cookie: {{cookie}}
+
+###
+#6、根据书页ID添加环节
+POST {{host}}/course/addLink
+Content-Type: application/json
+Cookie: {{cookie}}
+
+{
+  "refBookId": 96901,
+  "pageId": 420023,
+  "situationType": "语音评测",
+  "guideWordUrl": "1187204562486820864.mp3"
+}
+
+###
+# 7、删除环节
+POST {{host}}/course/delLink
+Content-Type: application/json
+Cookie: {{cookie}}
+
+{
+  "situationNo": "191025144257000001719838513"
+}
+
+###
+#3、获取某环节下所有已编辑的题组资源
+GET {{host}}/course/loadEditedGroups?situationNo=191025144735000000849303939
+Cookie: {{cookie}}
+
+###
+#8、环节上下移
+POST {{host}}/course/move
+Content-Type: application/json
+Cookie: {{cookie}}
+
+{
+  "moveId": "191025144735000000849303939",
+  "beMoveId": "191025144022000001152421140"
+}
+
+###
+#11、更新一个语音评测题组
+POST {{host}}/course/saveVoiceQuestion
+Content-Type: application/json
+Cookie: {{cookie}}
+
+{
+  "situationNo": "191025151910000000592223760",
+  "groupWordUrl": "1187204562486820864.mp3",
+  "cycleNumber": 3,
+  "minRightAnswer": 1,
+  "questionNumber": 1,
+  "maxErrorAnswer": 1,
+  "timeOut": 1,
+  "rightFeedbackUrl": "1187204562486820864.mp3",
+  "errorFeedbackUrl": "1187204562486820864.mp3",
+  "unansweredFeedbackUrl": "1187204562486820864.mp3",
+  "endFeedbackUrl": "1187204562486820864.mp3",
+  "questionList": [
+    {
+      "questionUrl": "1187204562486820864.mp3",
+      "triggerAreas": {
+        "strokeStyle": "#FF0000",
+        "type": 0,
+        "width": 214,
+        "y1": 54,
+        "name": "layer1",
+        "nickname": "layer3",
+        "x1": 75,
+        "y2": 204,
+        "x2": 289,
+        "height": 150
+      },
+      "answer": "Are you ok",
+      "orderIndex": 1
+    }
+  ]
+}
+
+###
+#14、退出指定id书籍的轻课制作（已编辑完）
+POST {{host}}/course/done
+Content-Type: application/json
+Cookie: {{cookie}}
+
+{
+  "refBookId": "96901"
+}
+
+###
+#10、更新一个手指找答案题组
+POST {{host}}/course/saveFindAnswerQuestion
+Content-Type: application/json
+Cookie: {{cookie}}
+
+{
+  "topicGroupOrder":1,
+  "groupWord":"两只老虎都没耳朵",
+  "situationNo ":"565846",
+  "groupWordUrl":"sss.mp3",
+  "cycleNumber":3,
+  "minRightAnswer":1,
+  "questionNumber":1,
+  "maxErrorAnswer":1,
+  "timeOut":1,
+  "rightFeedbackUrl":"sss.mp3",
+  "errorFeedbackUrl":"sss.mp3",
+  "unansweredFeedbackUrl":"sss.mp3",
+  "endFeedbackUrl":"sss.mp3",
+  "questionList ":[
+    {
+      "questionUrl":"jasd.mp3",
+      "triggerAreas":[
+        {
+          "shapeType":1,
+          "strokeStyle":"#FF0000",
+          "name":"layer1",
+          "nickname":"layer3",
+          "shape":[
+            {
+              "x":123,
+              "y":222
+            },
+            {
+              "x":113,
+              "y":212
+            },
+            {
+              "x":143,
+              "y":252
+            }
+          ]
+        }
+      ],
+      "answerAreas":[
+        {
+          "shapeType":1,
+          "strokeStyle":"#FF0000",
+          "name":"layer1",
+          "nickname":"layer3",
+          "shape":[
+            {
+              "x":123,
+              "y":222
+            },
+            {
+              "x":113,
+              "y":212
+            },
+            {
+              "x":143,
+              "y":252
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "questionUrl":"ass.mp3",
+      "triggerAreas":[
+        {
+          "shapeType":1,
+          "strokeStyle":"#FF0000",
+          "name":"layer1",
+          "nickname":"layer3",
+          "shape":[
+            {
+              "x":123,
+              "y":222
+            },
+            {
+              "x":113,
+              "y":212
+            },
+            {
+              "x":143,
+              "y":252
+            }
+          ]
+        }
+      ],
+      "answerAreas":[
+        {
+          "shapeType":1,
+          "strokeStyle":"#FF0000",
+          "name":"layer1",
+          "nickname":"layer3",
+          "shape":[
+            {
+              "x":123,
+              "y":222
+            },
+            {
+              "x":113,
+              "y":212
+            },
+            {
+              "x":143,
+              "y":252
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
